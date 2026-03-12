@@ -32,4 +32,5 @@ sources:
           - name: aircraft_code
           - name: seat_no
           - name: fare_conditions
+      - name: bookings          
       
