@@ -15,7 +15,7 @@ select
     end) as boarding_pass_exists,
     bp.boarding_no as boarding_no,
     bp.seat_no as seat_no,
-    current_date as load_date    
+    current_date as load_date      
 
 from 
     {{ ref('stg_flights__ticket_flights') }} tf 

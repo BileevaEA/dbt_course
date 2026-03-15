@@ -1,6 +1,7 @@
 {{
   config(
         materialized = 'table',
+        tags = ['bookings']
     )
 }}
 select
@@ -9,3 +10,7 @@ select
     total_amount
 from 
     {{ source('demo_src', 'bookings') }}
+
+
+
+    

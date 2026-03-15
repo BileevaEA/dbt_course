@@ -1,0 +1,86 @@
+models:
+  - name: fct_bookings
+    description: Факты бронирования
+    docs:
+      show: true
+      node_color: red
+    latest_version: 1
+    versions:
+      - v: 1
+    config:
+      contract: {enforced: true} #чтобы работали constraint
+    meta:
+      owner: "dbt@example.com"
+      contact_tg: vladamelin
+
+
+
+    columns:
+      - name: book_ref
+        data_type: varchar(8)
+        constraints:
+          - type: not_null
+      - name: book_date
+        data_type: timestamptz
+      - name: total_amount
+        data_type: numeric(10,2)
+        constraints:
+        - type: check
+          expression: "total_amount > 0"
+        tests:
+          - not_null
+        meta:
+          owner: finance_team
+        quote: false
+
+
+  - name: fct_ticket_flights
+    description: Факты выдачи посадочных талонов
+    docs:
+      show: true
+      node_color: green
+    latest_version: 1
+    versions:
+      - v: 1
+    config:
+      contract: {enforced: true} #чтобы работали constraint
+    meta:
+      owner: "dbt@example.com"
+      contact_tg: vladamelin
+
+    columns:
+      - name: ticket_no
+        data_type: bpchar(13)
+        constraints:
+          - type: not_null
+      - name: flight_id
+        data_type: int
+      - name: fare_conditions
+        data_type: varchar(10)
+      - name: amount
+        data_type: numeric(10,2)  
+        quote: true
+      - name: boarding_pass_exists
+        data_type: varchar(10)
+      - name: boarding_no
+        data_type: int
+      - name: seat_no
+        data_type: varchar(4)
+      - name: load_date
+        data_type: date
+
+
+
+        # constraints:
+        # - type: check
+        #   expression: "total_amount > 0"
+        # tests:
+        #   - not_null
+        # meta:
+        #   owner: finance_team
+        # quote: false
+
+
+
+        
+        
