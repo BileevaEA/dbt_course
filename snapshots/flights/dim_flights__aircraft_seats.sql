@@ -1,4 +1,4 @@
-{% snapshot dim_flights__seats %}
+{% snapshot dim_flights__aircraft_seats %}
 
 {{
    config(
