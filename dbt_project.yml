@@ -41,7 +41,12 @@ models:
       flights:
         +meta:
           owner: "dbt_project_yml@gmail.com"
-          year_created: 2025      
+          year_created: 2025     
+        +tags:
+          - "intermediate" 
+    staging:
+      +tags:
+        - "staging"
 
 
 seeds:
