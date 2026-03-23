@@ -12,6 +12,7 @@ models:
     meta:
       owner: "dbt@example.com"
       contact_tg: vladamelin
+      status: in_dev
 
 
 
@@ -20,6 +21,7 @@ models:
         data_type: varchar(8)
         constraints:
           - type: not_null
+        tests: [not_null, unique]
       - name: book_date
         data_type: timestamptz
       - name: total_amount
