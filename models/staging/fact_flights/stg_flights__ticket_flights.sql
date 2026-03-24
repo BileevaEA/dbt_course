@@ -4,11 +4,14 @@
         )       
 }}
 select
-  {{ adapter.quote("ticket_no") }},
-  {{ adapter.quote("flight_id") }},
-  {{ adapter.quote("fare_conditions") }},
-  {{ adapter.quote("amount") }}
+  ticket_no,
+  flight_id,
+  fare_conditions,
+  amount
 
 from {{ source('demo_src', 'ticket_flights') }}
 
+{%- if target.name == 'dev' %}
+limit 10000
+{% endif %}
     
